@@ -1,0 +1,19 @@
+{
+  "name": "cypress11course",
+  "version": "1.0.0",
+  "description": "Cypress 11 UDEMY course project",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run",
+    "open": "npx cypress open",
+    "runner":  "npx cypress open --e2e --browser chrome --config baseUrl=http://uitestingplayground.com"
+  },
+  "keywords": [
+    "cypress"
+  ],
+  "author": "Carlos Augusto Cervantes Camacho",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^12.0.0"
+  }
+}
