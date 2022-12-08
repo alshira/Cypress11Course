@@ -63,6 +63,27 @@ describe('Test SUITE #1', () => {
         //cy.visit("https://www.liverpool.com.mx/")
         cy.title().then((title)=>{
             cy.log(title)
+            expect(title).to.be.equal("Liverpool es parte de Mi vida")
         })
+        //"CSS selectors"
+        cy.get('input#mainSearchbar').type("Iphone{enter}")
+        
+
     })
+
+    it("Input Challenge", ()=> {
+        cy.visit("/textinput")
+        cy.get("input#newButtonName").type("Hello from Input")
+        cy.get("button#updatingButton").click().should('have.text','Hello from Input')
+        //expect(cy.get("button#updatingButton")).to.be.a("Hello from Input")
+        //assert(cy.get("button#updatingButton")
+    
+    })
+
+    it.only("looking for dynamic elements", ()=> {
+        cy.visit("/dynamicid")
+        cy.contains("Button with Dynamic ID").should('have.text','Button with Dynamic ID')
+    })
+
+
 })
