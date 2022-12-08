@@ -19,5 +19,7 @@ describe('load delay', () => {
         cy.visit("/progressbar")
         cy.get('#startButton').click()
         cy.get('#progressBar',{timeout:30000}).should("have.text","100%")
+        //BEST practice alternate commands and assertions, if you after this are going to use 
+        // a find function the should have to be there before the find
     });
 });
