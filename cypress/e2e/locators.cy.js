@@ -1,6 +1,6 @@
 describe("Locators",()=>{
     beforeEach(()=>{
-        cy.visit("dynamicid")
+        cy.visit("/dynamicid")
     })
     it("Cy.contains example",()=>{
         cy.contains("Button with Dynamic ID").should(
@@ -42,6 +42,16 @@ describe("Locators",()=>{
             "Button with Dynamic ID"
         )
     })
+
+    
+    //I don't how handle multiple findings
+    it("CSS selector using FIRST element.class,  subelement.class.subclass",()=> {
+        cy.get("ul:first-child.container,button.btn.btn-primary").should(
+            "have.text",
+            "Button with Dynamic ID"
+        )
+    })
+    
 
 
 })
