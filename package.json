@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npx cypress run",
     "open": "npx cypress open",
-    "runner": "npx cypress open --e2e --browser chrome --config baseUrl=http://uitestingplayground.com"
+    "runner": "npx cypress open --e2e --browser chrome --config baseUrl=http://uitestingplayground.com --env envVar=\"This is from command lilne\""
   },
   "keywords": [
     "cypress"
@@ -14,7 +14,8 @@
   "author": "Carlos Augusto Cervantes Camacho",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^12.0.0",
+    "cypress": "^11.2.0",
+    "cypress-real-events": "^1.7.4",
     "cypress-xpath": "^2.0.1"
   }
 }
