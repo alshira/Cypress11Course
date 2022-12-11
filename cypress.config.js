@@ -1,10 +1,17 @@
 const { defineConfig } = require("cypress");
+//verify download import
+const {isFileExist, findFiles} = require('cy-verify-downloads')
 
 module.exports = defineConfig({
   e2e: {
     baseUrl: "http://illuse-cli-parameter.com",
     setupNodeEvents(on, config) {
       // implement node event listeners here
+      /*********************************/
+      //adding cy-verify-downloads node event
+      on('task',{isFileExist,findFiles})
+      /*********************************/
+
     },
     env:{
       envVar: "Hello from cypress.config.js",
