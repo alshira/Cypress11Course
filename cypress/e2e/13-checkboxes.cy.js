@@ -17,6 +17,21 @@ describe('The internet app', () => {
 
     })
     it('Checkboxes scenario', () => {
-        cy.get('#checkboxes')
+        //stupid basic course sample
+        //cy.get('form#checkboxes input').eq(0).click().should('be.checked')
+        
+        // to check all at once since beggining
+        //cy.get('#checkboxes input[type="checkbox"]').as('checklist').check() 
+
+        //we parse all checkboxes looking just for already checked and got these values
+        cy.get('#checkboxes input[type="checkbox"]').as('checklist')// no action
+        cy.get('@checklist').each(checkbox=>{
+            if (checkbox[0].checked){ //only for true
+                expect(checkbox[0].checked).to.equal(true) // we perform the validation on true only
+                cy.log(checkbox.value) //in this case there is no value there, usually must be
+            }
+        })
     });
+
+    
 });
