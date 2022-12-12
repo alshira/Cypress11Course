@@ -38,18 +38,7 @@ describe('Dealing with links that open in separate browsers(cypress trade off)',
     });
 
 
-    it('', () => {
-        
-    });
-
-    it('', () => {
-        
-    });
-
-    it('', () => {
-        
-    });
-
+  
     it('Parse all links one by one', () => {
         cy.get('div#linkWrapper a').as('links')
         cy.get('@links').each(link=>{
@@ -172,8 +161,4 @@ describe('Intercepting API(spy) request after clicking on a button', () => {
         })
     })
 
-
-    it('', () => {
-        
-    });
 });

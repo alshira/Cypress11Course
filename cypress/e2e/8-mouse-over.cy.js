@@ -1,3 +1,5 @@
+//it uses a plugin
+//npm install cypress-real-events
 describe('mouse over scenario', () => {
     beforeEach(()=>{
         cy.visit("/mouseover")
@@ -13,8 +15,5 @@ describe('mouse over scenario', () => {
         cy.get('.text-primary').realHover();
     });
 
-    it('', () => {
-        
-    });
-
+   
 });
