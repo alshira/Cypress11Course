@@ -19,6 +19,7 @@ import "cypress-real-events/support"
 import "./exceptions" //to prevent issues with angular we import expections.js
 import 'cypress-file-upload'
 
+
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 require('cypress-xpath');

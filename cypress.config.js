@@ -5,12 +5,14 @@ const {isFileExist, findFiles} = require('cy-verify-downloads')
 module.exports = defineConfig({
   e2e: {
     baseUrl: "http://illuse-cli-parameter.com",
+    experimentalSessionAndOrigin: true,
     setupNodeEvents(on, config) {
       // implement node event listeners here
       /*********************************/
       //adding cy-verify-downloads node event
       on('task',{isFileExist,findFiles})
       /*********************************/
+      
 
     },
     env:{
@@ -23,5 +25,6 @@ module.exports = defineConfig({
   },
   pageLoadTimeout:60000,
   //viewportHeight: 1000,
-  //viewportWidth: 1400
+  //viewportWidth: 1400,
+  
 });

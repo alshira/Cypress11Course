@@ -24,3 +24,5 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 require('cy-verify-downloads') .addCustomCommand()
+import '@testing-library/cypress/add-commands'
+require('@4tw/cypress-drag-drop')
