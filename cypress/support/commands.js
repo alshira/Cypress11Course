@@ -26,3 +26,12 @@
 require('cy-verify-downloads') .addCustomCommand()
 import '@testing-library/cypress/add-commands'
 require('@4tw/cypress-drag-drop')
+
+//declare custom command
+//my custom command
+Cypress.Commands.add('mylogin',(username, password)=>{
+    cy.get('#userName').type(username)
+    cy.get('#password').type(password)
+    cy.get('#login').click()
+
+})

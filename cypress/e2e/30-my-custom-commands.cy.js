@@ -1,7 +1,4 @@
-// we are using Pages folder to store the page object model
-import {LoginPage, RegisterPage} from '../../cypress/pages/login/Login'
-
-describe('Page object Model test set', () => {
+describe('My custom commands set of tests', () => {
     before(()=>{
         cy.fixture('EDM Power - Stranger Things.mp3', 'base64').then((mp3) => {
             const uri = 'data:audio/mp3;base64,' + mp3
@@ -20,17 +17,22 @@ describe('Page object Model test set', () => {
             cy.visit('/login')
     })
 
-    it('Sucessful login', () => {
-        LoginPage.submitLogin('test','Test#1234')
+    it.only('testing mylogin commnad', () => {
+        cy.mylogin('test','Test#1234')
         cy.url().should('contain','profile')  
         cy.screenshot()  
     });
-    
 
-    it('Failed login', () => {
-        LoginPage.submitLogin('Tiesto','Tiestin')
-        LoginPage.getname().should('have.text','Invalid username or password!')  
+
+    it('wrong credentials scenario', () => {
+        cy.mylogin('wrongusername','wrongpass')
+        cy.url().should('contain','login')  
         cy.screenshot()  
+    });
+
+
+    it('', () => {
+        
     });
 
 });
