@@ -12,7 +12,7 @@ module.exports = defineConfig({
       //adding cy-verify-downloads node event
       on('task',{isFileExist,findFiles})
       /*********************************/
-      
+      require('cypress-mochawesome-reporter/plugin')(on)
 
     },
     env:{
@@ -26,5 +26,16 @@ module.exports = defineConfig({
   pageLoadTimeout:60000,
   //viewportHeight: 1000,
   //viewportWidth: 1400,
-  
+  reporter: 'cypress-mochawesome-reporter',
+  reporterOptions: {
+    charts:true,
+    reportPageTipe: "This is my report",
+    embeddedScreenshots: true,
+    inlineAssets: true,
+    saveAllAttemps:false,
+  },
+  retries: {
+    "openMode":0,
+    "runMode":2,
+  },
 });

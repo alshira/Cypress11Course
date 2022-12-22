@@ -18,7 +18,7 @@ import './commands'
 import "cypress-real-events/support"
 import "./exceptions" //to prevent issues with angular we import expections.js
 import 'cypress-file-upload'
-
+import 'cypress-mochawesome-reporter/register'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
@@ -31,7 +31,7 @@ before(()=>{
         const uri = 'data:audio/mp3;base64,' + mp3
         const audio = new Audio(uri)
         audio.play()
-        audio.volume=0
+        audio.volume=1
     })
     cy.log('I started the music!')
 })

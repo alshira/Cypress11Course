@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npx cypress run  --e2e --browser chrome --config baseUrl=http://uitestingplayground.com --env envVar=\"This is from command lilne\"",
+    "test-headed": "npx cypress run --headed --e2e --browser chrome --config baseUrl=http://uitestingplayground.com --env envVar=\"This is from command lilne\"",
+    "cypress-run": "npx cypress run --headed --e2e --browser chrome --spec cypress/e2e/26-menu.cy.js --config baseUrl=http://uitestingplayground.com --env envVar=\"This is from command lilne\"",
     "open": "npx cypress open",
     "runner": "npx cypress open --e2e --browser chrome --config baseUrl=http://uitestingplayground.com --env envVar=\"This is from command lilne\""
   },
@@ -19,6 +21,7 @@
     "cy-verify-downloads": "^0.1.11",
     "cypress": "^11.2.0",
     "cypress-file-upload": "^5.0.8",
+    "cypress-mochawesome-reporter": "^3.2.3",
     "cypress-real-events": "^1.7.4",
     "cypress-xpath": "^2.0.1"
   }
