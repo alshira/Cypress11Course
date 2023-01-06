@@ -2,6 +2,7 @@
     "demoQA": "https://demoqa.com",
     "theInternet": "http://the-internet.herokuapp.com/",
     "Angular": "https://www.globalsqa.com",
-    "protractor" : "https://www.globalsqa.com/angularjs-protractor-practice-site"
+    "protractor" : "https://www.globalsqa.com/angularjs-protractor-practice-site",
+    "uitesting": "http://uitestingplayground.com"
 
 }
