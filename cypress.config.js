@@ -6,6 +6,7 @@ const xlsx = require("node-xlsx").default
 const fs = require("fs") //for file
 const path = require("path"); //for filepath
 const { resolve } = require("path");
+const mysql = require("mysql") //for mysql supprt
 
 module.exports = defineConfig({
   e2e: {
@@ -31,13 +32,26 @@ module.exports = defineConfig({
           })
         }
       })
+      //adding task for mysql
+      on('task',{
+        queryDb: (query) => {
+          return queryTestDb(query,config)
+        }
+      })
+
     },
     env:{
       envVar: "Hello from cypress.config.js",
       demoQA: "https://demoqa.com",
       theInternet: "https://the.internet.herokuapp.com",
       Angular: "https://www.globalsqa.com",
-      protractor : "https://www.globalsqa.com/angularjs-protractor-practice-site"
+      protractor : "https://www.globalsqa.com/angularjs-protractor-practice-site",
+      db: {
+        host: "localhost",
+        user: "root",
+        password: "",
+        database: "my_database_here"
+      }
     }
   },
   pageLoadTimeout:60000,
@@ -56,3 +70,22 @@ module.exports = defineConfig({
     "runMode":2,
   },
 });
+
+function queryTestDb(query, config){
+  //create new mysql connection usuing credentials from cypress.json env
+  const connection = mysql.createConnection(config.env.db) 
+  //start connection
+  connection.connect()
+  //exec query + disconect from db as a Promise
+  return new Promise((resolve, reject)=>{
+    connection.query(query, (error,results)=>{
+      if (error) {
+        reject(error)
+      } else {
+        connection.end()
+        console.log(results)
+        return resolve(results)
+      }
+    })
+  })
+}
